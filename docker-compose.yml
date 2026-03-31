@@ -1,0 +1,13 @@
+services:
+  serv_web:
+    build:
+      context: ./nginx
+    ports:
+      - "8080:80"
+  serv_cache:
+    image: redis:alpine
+    volumes:
+      - redis_data:/data
+volumes:
+  redis_data:
+    driver: local
